@@ -1,0 +1,8 @@
+---
+applications:
+- name: eureka-service
+  host: eureka-service-cctv-dojo
+  memory: 1024M
+  instances: 1
+  path: target/eureka-service.jar
+  

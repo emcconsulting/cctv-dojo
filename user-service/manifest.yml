@@ -1,0 +1,9 @@
+---
+applications:
+- name: user-service
+  host: user-service-cctv-dojo
+  memory: 1024M
+  instances: 1
+  path: target/user-service.jar
+  services:
+  - mysql

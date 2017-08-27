@@ -1,0 +1,10 @@
+---
+applications:
+- name: review-service
+  host: review-service-cctv-dojo
+  memory: 1024M
+  instances: 1
+  path: target/review-service.jar
+  services:
+  - mysql-review
+  - rabbitmq

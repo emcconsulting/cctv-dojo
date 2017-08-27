@@ -1,0 +1,32 @@
+server:
+  port: 9092
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+   
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 5
+ 
+spring:
+  zipkin:
+    baseUrl: http://localhost:9411
+    enabled: true
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+ribbon:
+  http:
+    client:
+      enabled: true
+      
+hystrix:
+  metrics:
+    enabled: true
+    
