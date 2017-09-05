@@ -16,7 +16,7 @@ public class CompositeUserService {
 
 	protected String userServiceUrl = "http://USER-SERVICE";
 
-	@HystrixCommand(fallbackMethod = "userDetailFallback")
+	//@HystrixCommand(fallbackMethod = "userDetailFallback")
 	public UserEntityResponse getUserDetail(ReviewServiceResponse reviewResponse) {
 		UserEntityResponse userResponse = restTemplate
 				.getForObject(userServiceUrl + "/user/" + reviewResponse.getUserId(), UserEntityResponse.class);
@@ -29,7 +29,8 @@ public class CompositeUserService {
 		return userResponse;
 	}
 
-	public UserEntityResponse userDetailFallback(ReviewServiceResponse reviewResponse) {
+	public UserEntityResponse userDetailFallback(ReviewServiceResponse reviewResponse,Throwable th) {
+		th.printStackTrace();
 		UserEntityResponse resp = new UserEntityResponse();
 		resp.setFirstName("FIRST-NAME-NOT-AVAILABLE");
 		resp.setLastName("LAST-NAME-NOT-AVAILABLE");
