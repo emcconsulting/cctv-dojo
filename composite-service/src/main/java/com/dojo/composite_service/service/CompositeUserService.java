@@ -29,8 +29,9 @@ public class CompositeUserService {
 		return userResponse;
 	}
 
-	public UserEntityResponse userDetailFallback(ReviewServiceResponse reviewResponse) {
-		//th.printStackTrace();
+	protected UserEntityResponse userDetailFallback(ReviewServiceResponse reviewResponse, Throwable t) {
+		System.out.println(t.getMessage());
+		t.printStackTrace();
 		UserEntityResponse resp = new UserEntityResponse();
 		resp.setFirstName("FIRST-NAME-NOT-AVAILABLE");
 		resp.setLastName("LAST-NAME-NOT-AVAILABLE");
